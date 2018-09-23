@@ -1,0 +1,193 @@
+$circle-size: 60vmin;
+$main-circle-color: #BC002D;
+$second-circle-color: #FFFFFF;
+$initial-animation-duration: 1.5s;
+$initial-animation-delay: .7s;
+$header-footer-height: 120px;
+.fadein-slideup-anim {
+    animation: fadeInSlideUp $initial-animation-duration ease-out $initial-animation-delay backwards;
+}
+
+.fadein-slidein-anim {
+    animation: fadeInSlideIn $initial-animation-duration ease-out $initial-animation-delay backwards;
+    min-width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    &.width-40px {
+        max-width: 40px;
+    }
+    &.width-95px {
+        max-width: 95px;
+    }
+    &.width-120px {
+        max-width: 120px;
+    }
+    &.width-140px {
+        max-width: 140px;
+    }
+    &.width-180px {
+        max-width: 180px;
+    }
+}
+
+.container {
+    height: 100%;
+    padding: 20px 60px;
+    header {
+        width: 100%;
+        height: $header-footer-height;
+        .menu-button {
+            font-weight: bold;
+        }
+        .title-wrapper {
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: fit-content;
+            .title {
+                display: table;
+                animation: slideUp $initial-animation-duration ease-out $initial-animation-delay backwards;
+                font-size: 48px;
+            }
+        }
+    }
+    .content {
+        height: 100%;
+        width: 100%;
+        .menu-block {
+            height: 100%;
+            .menu-item {
+                height: 100%;
+                font-weight: bold;
+                position: relative;
+                vertical-align: middle;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    height: 100%;
+                    width: 1px;
+                    vertical-align: middle;
+                }
+                &:not(:first-child)::before {
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #c5c5c5, rgba(0, 0, 0, 0));
+                    animation: expand $initial-animation-duration ease-out $initial-animation-delay backwards;
+                }
+                span {
+                    margin-left: 16px;
+                    margin-right: 50px;
+                }
+                &:hover {
+                    cursor: pointer;
+                    span {
+                        border-bottom: 3px solid black;
+                    }
+                }
+            }
+        }
+        .description-block {
+            width: 20vw;
+            padding: 40px;
+            margin-right: 40px;
+            transition: 0ms;
+            .description-title {
+                font-size: 60px;
+                line-height: 60px;
+            }
+        }
+    }
+    footer {
+        width: 100%;
+        height: $header-footer-height;
+    }
+}
+
+@keyframes expand {
+    from {
+        transform: scaleY(0);
+    }
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+@keyframes fadeInSlideIn {
+    from {
+        max-width: 0px;
+        padding: 0px;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(140%);
+    }
+}
+
+.circle {
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    background: $main-circle-color;
+    animation: initialFlyIn $initial-animation-duration ease $initial-animation-delay;
+    animation-fill-mode: both;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -100;
+}
+
+.circle-anim {
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -100;
+    &-red {
+        background: $main-circle-color;
+        animation: flyIn 2s ease forwards;
+    }
+    &-white {
+        background: $second-circle-color;
+        animation: flyIn 2s ease .3s forwards;
+        transform: scale(0);
+    }
+}
+
+@keyframes flyIn {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    99% {
+        transform: scale(10);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes initialFlyIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
