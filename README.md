@@ -1,6 +1,6 @@
 # CssAnimationJapan
 
-Angular 6, Material 6, scss
+Angular 6, Material 6, Flex-Layout, scss
 
 ## Run locally
 
