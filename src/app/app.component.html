@@ -1,8 +1,10 @@
 <div class="circle-anim circle-anim-red"></div>
 <div class="circle-anim circle-anim-white"></div>
 <div class="circle"></div>
-<div class="container" fxLayout="column" fxLayoutAlign="start start">
-  <header fxLayout="row" fxLayoutAlign="space-between center">
+<div class="container" fxLayout="column" fxLayoutAlign="start start"
+  [ngStyle.xs]="{ 'padding': 0 }">
+  <header fxLayout="row" fxLayoutAlign="space-between center"
+  [ngStyle.xs]="{ 'height': 110 }">
     <button class="menu-button fadein-slidein-anim width-95px" mat-button>
       Menu
       <mat-icon>menu</mat-icon>
@@ -15,7 +17,8 @@
     </button>
   </header>
   <div class="content" fxLayout="row" fxLayoutAlign="space-between center">
-    <div class="menu-block">
+    <div class="menu-block"
+      [ngStyle.xs]="{ 'display': 'grid' }">
       <div class="fadein-slidein-anim width-140px menu-item" (mouseenter) ="onMenuHover(0)">
         <span>01 Culture</span>
       </div>
@@ -28,18 +31,21 @@
     </div>
     <div class="description-block" [ngSwitch]="descriptionType">
       <ng-container *ngSwitchCase="0">
-        <h2 class="description-title" [ngClass]="animationEnabled ? 'fadein-slideup-anim' : ''">Culture of Japan</h2>
+        <h2 class="description-title" [ngClass]="animationEnabled ? 'fadein-slideup-anim' : ''"
+        [ngStyle.xs]="{ 'font-size.px': 30, 'line-height': 'unset'}">Culture of Japan</h2>
         <p [ngClass]="animationEnabled ? 'fadein-slideup-anim' : ''">Japanese culture has evolved greatly from its origins. Contemporary culture combines influences from Asia, Europe
           and North America.</p>
         <button [ngClass]="animationEnabled ? 'fadein-slideup-anim' : ''" mat-button>See more...</button>
       </ng-container>
       <ng-container *ngSwitchCase="1">
-        <h2 class="description-title">Best Destinations in Japan</h2>
+        <h2 class="description-title"
+        [ngStyle.xs]="{ 'font-size.px': 30, 'line-height': 'unset'}">Best Destinations in Japan</h2>
         <p>Japan is an island nation in the Pacific Ocean with dense cities, imperial palaces, mountainous national parks and thousands of shrines and temples.</p>
         <button mat-button>See more...</button>
       </ng-container>
       <ng-container *ngSwitchCase="2">
-        <h2 class="description-title">History of Japan</h2>
+        <h2 class="description-title"
+        [ngStyle.xs]="{ 'font-size.px': 30, 'line-height': 'unset'}">History of Japan</h2>
         <p>The first human habitation in the Japanese archipelago has been traced to prehistoric times. The Jōmon period, named after its "cord-marked" pottery, was followed by the Yayoi in the first millennium BC, when new technologies were introduced from continental Asia.</p>
         <button mat-button>See more...</button>
       </ng-container> 
