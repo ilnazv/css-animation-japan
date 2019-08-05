@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href https://ilnazv.github.io/css-animation-japan/ && ngh -r https://github.com/ilnazv/css-animation-japan.git --no-silent"
+    "deploy": "ng build --prod --base-href https://ilnaz.me/css-animation-japan/ && ngh -r https://github.com/ilnazv/css-animation-japan.git --no-silent"
   },
   "private": true,
   "dependencies": {
